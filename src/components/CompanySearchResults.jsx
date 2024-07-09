@@ -16,7 +16,7 @@ const CompanySearchResults = () => {
 
   const getJobs = async () => {
     try {
-      const response = await fetch(baseEndpoint + params.company);
+      const response = await fetch(baseEndpoint + params.companyName);
       if (response.ok) {
         const { data } = await response.json();
         setJobs(data);
@@ -31,8 +31,7 @@ const CompanySearchResults = () => {
   return (
     <Container>
       <Row>
-        <Col className="my-3">
-          <h1 className="display-4">Job posting for: {params.company}</h1>
+        <Col>
           {jobs.map((jobData) => (
             <Job key={jobData._id} data={jobData} />
           ))}
