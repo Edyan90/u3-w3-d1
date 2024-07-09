@@ -4,7 +4,7 @@ const initialState = {
   list: [],
 };
 
-const addRemFav = (state = initialState, action) => {
+const favourites = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_FAVOURITE:
       return {
@@ -23,4 +23,4 @@ const addRemFav = (state = initialState, action) => {
   }
 };
 
-export default addRemFav;
+export default favourites;

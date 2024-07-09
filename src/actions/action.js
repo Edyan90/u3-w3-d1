@@ -9,7 +9,7 @@ export const addToFavourite = (fav) => ({ type: ADD_TO_FAVOURITE, payload: fav }
 export const getJobAction = (query) => {
   return async (dispatch, getState) => {
     console.log(getState);
-    dispatch({ type: GET_JOB_ON });
+
     const baseEndpoint = "https://strive-benchmark.herokuapp.com/api/jobs?search=";
     try {
       const response = await fetch(baseEndpoint + query + "&limit=20");

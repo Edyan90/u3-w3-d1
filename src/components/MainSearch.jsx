@@ -1,15 +1,15 @@
-import { useEffect, useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import Job from "./Job";
-import fetchReducer from "../redux/reducers/fetchReducer";
 import { useDispatch, useSelector } from "react-redux";
+import { getJobAction } from "../actions/action";
+import { useState } from "react";
 
 const MainSearch = () => {
   const [query, setQuery] = useState("");
   const dispatch = useDispatch();
   const jobs = useSelector((state) => state.fetchjob.content);
-  console.log(jobs);
+
   const navigate = useNavigate();
 
   /* const baseEndpoint = "https://strive-benchmark.herokuapp.com/api/jobs?search="; */
@@ -20,7 +20,7 @@ const MainSearch = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(fetchReducer(query));
+    dispatch(getJobAction(query));
 
     /* try {
       const response = await fetch(baseEndpoint + query + "&limit=20");
@@ -34,9 +34,7 @@ const MainSearch = () => {
       console.log(error);
     } */
   };
-  useEffect(() => {
-    console.log(jobs);
-  }, []);
+
   return (
     <Container>
       <Row>

@@ -1,13 +1,14 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import mainReducer from "../reducers/mainReducer";
-import addRemFav from "../reducers/mainReducer";
+
 import fetchReducer from "../reducers/fetchReducer";
+import favourites from "../reducers/favourites";
+
 const rootReducer = combineReducers({
-  addRemFav: addRemFav,
+  favourites: favourites,
   fetchjob: fetchReducer,
 });
 const store = configureStore({
-  reducer: mainReducer,
+  reducer: rootReducer,
 });
 
 export default store;
